@@ -3,4 +3,7 @@
 **/.settings
 **/*.jardesc
 **/.settings/**
-liverepl-server/lib/clojure.jar
+liverepl-server/lib/clojure*.jar
+*~
+lib
+**/build

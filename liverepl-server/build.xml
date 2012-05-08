@@ -9,11 +9,6 @@
   </target>
 
   <target name="compile" depends="resolve">
-
-    <echo message="============================================================" />
-    <echo message="Ensure that clojure.jar is copied to ./liverepl-serer/lib" />
-    <echo message="============================================================" />
-
     <mkdir dir="./classes" />
     <javac debug="yes"
 	   srcdir="./src"

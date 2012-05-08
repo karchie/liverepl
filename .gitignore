@@ -3,7 +3,8 @@
 **/.settings
 **/*.jardesc
 **/.settings/**
+**/classes
 liverepl-server/lib/clojure*.jar
 *~
 lib
-**/build
+build

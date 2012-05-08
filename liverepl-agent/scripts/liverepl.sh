@@ -22,13 +22,13 @@ else
     CLASSPATH="${CLASSPATH}${JDK_HOME}/lib/tools.jar"
 fi
 
-if which rlwrap >/dev/null; then
+if [ "$TERM" != "dumb" ] && which rlwrap >/dev/null; then
     echo "Found rlwrap"
     breakchars="(){}[],^%$#@\"\";:''|\\"
     WRAP="exec rlwrap --remember -c -b \"$breakchars\" "
 fi
 
-${WRAP}java -cp $CLASSPATH $MAIN "$CLOJURE_JAR" "$LIVEREPL_HOME/liverepl-agent.jar" "$LIVEREPL_HOME/liverepl-server.jar" "$@"
+${WRAP}java -Xmx128M -cp $CLASSPATH $MAIN "$CLOJURE_JAR" "$LIVEREPL_HOME/liverepl-agent.jar" "$LIVEREPL_HOME/liverepl-server.jar" "$@"
 
 
 

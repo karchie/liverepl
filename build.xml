@@ -17,6 +17,7 @@
       <fileset dir="./liverepl-agent/lib" includes="*.jar" />
       <fileset file="./liverepl-agent/scripts/liverepl.bat" />
       <fileset file="./liverepl-agent/scripts/liverepl.sh" />
+      <fileset file="./liverepl-agent/scripts/liverepl.el" />
       <fileset file="./README.TXT" />
       <fileset file="./LICENSE" />
     </copy>

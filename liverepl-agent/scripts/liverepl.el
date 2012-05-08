@@ -14,7 +14,12 @@
 (defun run-liverepl (&optional pid classloader)
   "Run liverepl as an inferior lisp. pid is the system process ID
 for the target JVM. classloader is the classloader index."
-  (interactive "sTarget JVM pid: \nsClassloader index: ")
+  (interactive
+   (let* ((pid (read-string "Target JVM pid: "))
+	  (classloader (if (string= "" pid)
+			   ""
+			 (read-string "Classloader index: "))))
+     (list pid classloader)))
   (run-lisp (concat "/bin/sh " liverepl-sh " "
 		    pid " "
 		    (if (string= "" pid) "" classloader))))

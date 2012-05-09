@@ -11,6 +11,11 @@
   :type 'string
   :group 'liverepl)
 
+(defun join-until-empty (start &rest xs)
+  (if (or (string= "" start) (not xs) (string= "" (car xs)))
+      start
+    (apply 'join-until-empty (concat start " " (car xs)) (cdr xs))))
+
 (defun run-liverepl (&optional pid classloader)
   "Run liverepl as an inferior lisp. pid is the system process ID
 for the target JVM. classloader is the classloader index."
@@ -20,6 +25,4 @@ for the target JVM. classloader is the classloader index."
 			   ""
 			 (read-string "Classloader index: "))))
      (list pid classloader)))
-  (run-lisp (concat "/bin/sh " liverepl-sh " "
-		    pid " "
-		    (if (string= "" pid) "" classloader))))
+  (run-lisp (join-until-empty "/bin/sh" liverepl-sh pid classloader)))

@@ -1,6 +1,6 @@
 <ivy-module version="2.0">
     <info organisation="net.djpowell" module="liverepl"/>
     <dependencies>
-        <dependency org="org.clojure" name="clojure" rev="1.4.0"/>
+        <dependency org="org.clojure" name="clojure" rev="1.6.0"/>
     </dependencies>
 </ivy-module>
